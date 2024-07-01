@@ -21,7 +21,9 @@ Projeto para uma loja virtual fictícia chamada Deep Space Store. A aplicação 
 
 4. Na pasta backend, execute <pre> npm install </pre> para instalar as dependências do backend.
 
-Na pasta backend, execute <pre> npm prisma migrate </pre> para configurar o Prisma.
+Em seguida, retirar a extensão "example" do arquivo .env.example.
+
+Execute <pre> npx prisma migrate dev </pre> para configurar o Prisma.
 
 
 5. Na pasta backend, execute <pre> npm run seed:offers </pre> para popular o banco de dados com ofertas fictícias.

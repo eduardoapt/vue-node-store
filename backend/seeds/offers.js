@@ -3,6 +3,9 @@ const { PrismaClient } = require("@prisma/client")
 const prisma = new PrismaClient()
 
 async function seedOffers() {
+  //will reset the DB
+  await prisma.offer.deleteMany()
+  await prisma.order.deleteMany()
   const offers = [
     {
       code: "offer-1",
