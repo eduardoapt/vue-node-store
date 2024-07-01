@@ -3,7 +3,7 @@
     <HeaderComponent pageTitle="Ofertas" />
     <v-row>
       <v-col cols="12">
-        <h1>Deep Space Store - Nossas Ofertas</h1>
+        <h1 class="home-mt">Deep Space Store - Nossas Ofertas</h1>
       </v-col>
     </v-row>
     <v-row>
@@ -45,4 +45,8 @@ onMounted(async () => {
   }
 });
 </script>
-<style scoped></style>
+<style scoped>
+.home-mt {
+  margin-top: 7%;
+}
+</style>

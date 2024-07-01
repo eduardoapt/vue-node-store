@@ -1,22 +1,32 @@
 version: "3.8"
 
 services:
-  deep-space-db:
-    image: "sqlite"
-    volumes:
-      - ./prisma:/app/prisma
+  frontend:
+    build:
+      context: ./frontend
     ports:
-      - "7000:7000"
+      - "3000:80"
+    depends_on:
+      - backend
 
-  deep-space-backend:
+  backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
-    environment:
-      DATABASE_URL: "file:./dev.db"
-    volumes:
-      - .:/app
     ports:
       - "8000:8000"
+    volumes:
+      - sqlite-data:/app/prisma
     depends_on:
-      - deep-space-db
+      - sqlite
+    environment:
+      - DATABASE_URL=file:/app/prisma/dev.db
+      - COMMAND=start
+    command: >
+      /bin/sh -c "npx prisma migrate deploy && npm run $${COMMAND}"
+
+  sqlite:
+    image: nouchka/sqlite3
+    container_name: sqlite
+
+volumes:
+  sqlite-data:

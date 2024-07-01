@@ -7,7 +7,7 @@ const bodyParser = require("body-parser")
 app.use(cors())
 app.use(bodyParser.json())
 app.get("/", (req, res) => {
-  res.send("Hello World!")
+  res.send("Servidor online!")
 })
 app.use("/offers", offerRoutes)
 

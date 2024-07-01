@@ -15,16 +15,23 @@ Projeto para uma loja virtual fictícia chamada Deep Space Store. A aplicação 
     ```
 2. Para executar o projeto, siga estas etapas:
 
+### Com Docker
 
-3. Na pasta frontend, execute <pre> npm install </pre> para instalar as dependências do frontend.
+1. Rode na pasta raiz do projeto:  <pre> docker-compose up --build -d </pre> e a aplicação estará pronta para navegação.
 
 
-4. Na pasta backend, execute <pre> npm install </pre> para instalar as dependências do backend.
+2. Caso queira rodar testes, após o build, insira o comando <pre> docker-compose run -e COMMAND=test backend </pre> e o teste será executado e aparecerá no seu terminal.
 
-Em seguida, retirar a extensão "example" do arquivo .env.example.
+## Sem Docker, ambiente Linux com Node 18
 
-Execute <pre> npx prisma migrate dev </pre> para configurar o Prisma.
+1. Na pasta frontend, execute <pre> npm install </pre> para instalar as dependências do frontend.
 
+
+2. Na pasta backend, execute <pre> npm install </pre> para instalar as dependências do backend.
+
+3. Em seguida, retirar a extensão "example" do arquivo .env.example.
+
+4. Execute <pre> npx prisma migrate dev </pre> para configurar o Prisma.
 
 5. Na pasta backend, execute <pre> npm run seed:offers </pre> para popular o banco de dados com ofertas fictícias.
 
