@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  deep-space-db:
+    image: "sqlite"
+    volumes:
+      - ./prisma:/app/prisma
+    ports:
+      - "7000:7000"
+
+  deep-space-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: "file:./dev.db"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - deep-space-db
