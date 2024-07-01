@@ -22,7 +22,7 @@ services:
       - DATABASE_URL=file:/app/prisma/dev.db
       - COMMAND=start
     command: >
-      /bin/sh -c "npx prisma migrate deploy && npm run $${COMMAND}"
+      /bin/sh -c "npx prisma generate && npx prisma migrate deploy && npm run $${COMMAND}"
 
   sqlite:
     image: nouchka/sqlite3
